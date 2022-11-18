@@ -1,0 +1,44 @@
+﻿@model List<IngredientViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameForInnerType((IngredientViewModel model) => model.Name)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ingredient in Model)
+        {
+            <tr>
+                <td>
+                    @ingredient.Name
+                </td>
+                <td>
+                    <p>
+                        <a asp-action="Details" asp-route-id="@ingredient.Id">Details</a>
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        <a asp-action="Delete" asp-route-id="@ingredient.Id">Delete</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

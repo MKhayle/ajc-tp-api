@@ -1,0 +1,59 @@
+﻿@model List<PizzaSimpleViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameForInnerType((PizzaSimpleViewModel model) => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameForInnerType((PizzaSimpleViewModel model) => model.Pate)
+            </th>
+            <th>
+                @Html.DisplayNameForInnerType((PizzaSimpleViewModel model) => model.Ingredients)
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pizza in Model)
+        {
+            <tr>
+                <td>
+                    @pizza.Name
+                </td>
+                <td>
+                    @pizza.Pate.Name
+                </td>
+                <td>
+                    @pizza.IngredientsDisplay
+                </td>
+                <td>
+                    <p>
+                        <a asp-action="Details" asp-route-id="@pizza.Id">Details</a>
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        <a asp-action="Delete" asp-route-id="@pizza.Id">Delete</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

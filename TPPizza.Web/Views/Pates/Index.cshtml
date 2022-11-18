@@ -1,0 +1,44 @@
+﻿@model List<PateViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameForInnerType((PateViewModel model) => model.Name)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pate in Model)
+        {
+            <tr>
+                <td>
+                    @pate.Name
+                </td>
+                <td>
+                    <p>
+                        <a asp-action="Details" asp-route-id="@pate.Id">Details</a>
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        <a asp-action="Delete" asp-route-id="@pate.Id">Delete</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
